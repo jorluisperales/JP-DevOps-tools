@@ -1,0 +1,13 @@
+---
+volumes:
+  influxdb-data:
+services:
+  influxdb:
+    image: influxdb:alpine
+    container_name: influxdb
+    ports:
+      - 8086:8086
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+      - /etc/influxdb2:/etc/influxdb2
+    restart: unless-stopped
